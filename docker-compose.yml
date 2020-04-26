@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8000"
+    networks:
+      - db_w
+    volumes:
+      - ./log:/log
+      - ./storage/data:/code/storage/data
+      - ./storage/files:/code/storage/files
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 888:80
+    volumes:
+      - ./storage/conf:/etc/nginx/conf.d
+    depends_on:
+      - web
+    networks:
+      - db_w
+
+networks:
+  db_w:
+    driver: bridge

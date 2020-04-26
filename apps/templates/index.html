@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Архив файлов</title>
+</head>
+<h3>Список файлов</h3>
+
+<ul>
+    {% if files %}
+    {% for file in files %}
+
+    <li><a href="/download/{{file.id}}">{{ file.f_name }}</a>  <a href="/check/{{file.id}}">Проверка</a></li>
+    {% endfor %}
+    {% else %}
+    <p>Файлов нет БД, нажните на кнопку "загрузить файл на сервер"</p>
+    {%endif%}
+</ul>
+
+<br>
+<form action="/upload" method="POST" accept-charset="utf-8"
+      enctype="multipart/form-data">
+    <input type="file" name="files">
+    <button type="submit">Загрузить файл на сервер</button>
+</form>
+
+<body>
+
+</body>
+</html>

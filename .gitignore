@@ -1,0 +1,20 @@
+# byte-compiled
+__pycache__/
+*.py[cod]
+
+# pycharm
+.idea/
+.idea/*
+
+# venv
+venv
+
+# database & logs
+*.log
+log
+storage/data/*
+storage/files/*
+
+# Trash
+storage/.DS_Store
+.DS_Store
