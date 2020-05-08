@@ -8,12 +8,12 @@ async def h_index(request):
     return DataSet(request)
 
 async def h_Upload(request):
-    data_file = await request.post()
-    return H_File().Upload(data_file)
+    data_file = await request.read()
+    return H_File().upload(data_file)
 
 async def h_Check(request):
-    return H_File().Check(request)
+    return H_File().check(request)
 
 async def h_Download(request):
-    return H_File().Download(request)
+    return H_File().download(request)
 
